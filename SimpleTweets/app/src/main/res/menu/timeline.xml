@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/miComposeTweet"
+        android:icon="@drawable/twitter_quill1"
+        app:showAsAction="always"
+        android:title="Compose">
+    </item>
+
+    <item android:id="@+id/miProfile"
+        android:icon="@mipmap/ic_profile"
+        app:showAsAction="ifRoom"
+        android:title="Profile"
+        android:onClick="onProfileView"/>
+
+    <item
+        android:id="@+id/miActionProgress"
+        android:title="Loading..."
+        android:visible="false"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        app:actionLayout="@layout/action_view_progress" />
+
+</menu>
