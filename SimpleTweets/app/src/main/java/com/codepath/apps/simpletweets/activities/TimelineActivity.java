@@ -287,18 +287,11 @@ public class TimelineActivity extends ActionBarActivity implements ComposeFragme
     public void onComposedTweet(Tweet composeTweet) {
         List<Fragment> fragmentList = getSupportFragmentManager().getFragments();
         HomeTimelineFragment homeTimelineFragment = null;
-        MentionsTimelineFragment mentionsTimelineFragment = null;
-
         for (Fragment f : fragmentList) {
             if (f instanceof HomeTimelineFragment) {
                 homeTimelineFragment = (HomeTimelineFragment)f;
                 addToHomeTimeline(homeTimelineFragment,composeTweet);
-                continue;
-            }
-            if (f instanceof MentionsTimelineFragment) {
-                mentionsTimelineFragment = (MentionsTimelineFragment)f;
-                addToMentionsTimeline(mentionsTimelineFragment, composeTweet);
-                continue;
+                break;
             }
         }
     }
@@ -309,14 +302,6 @@ public class TimelineActivity extends ActionBarActivity implements ComposeFragme
             homeTimelineFragment.aTweets.notifyItemRangeInserted(0,
                     1);
             homeTimelineFragment.layoutManager.scrollToPosition(0);
-        }
-    }
-    public void addToMentionsTimeline(MentionsTimelineFragment mentionsTimelineFragment, Tweet composeTweet){
-        if (mentionsTimelineFragment != null) {
-            mentionsTimelineFragment.tweets.addFirst(composeTweet);
-            mentionsTimelineFragment.aTweets.notifyItemRangeInserted(0,
-                    1);
-            mentionsTimelineFragment.layoutManager.scrollToPosition(0);
         }
     }
 
